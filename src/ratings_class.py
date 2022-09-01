@@ -1,7 +1,6 @@
 # Below class is to update rating
 # Contains functions to update user rating along with current date
 # importing necessary modules
-
 import sys
 from datetime import datetime
 
