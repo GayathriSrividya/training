@@ -21,7 +21,7 @@ print("inserting values into database...\n")
 for index, row in df.iterrows():
     this_movie.insert(row)
 
-print("Values are inserted into the database Successfully \n")
+print("Values are inserted into the database Successfully. \n")
 
 
 
