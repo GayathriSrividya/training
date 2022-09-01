@@ -1,19 +1,24 @@
+# import required dependencies
 import sys
 from datetime import datetime
 sys.path.append("..")
 from utils.dbconfig import dbconfig
 import psycopg2 as ps
 
+# arranging connection to postgresql database
 params=dbconfig()
 conn = ps.connect(**params)
 conn.autocommit = True
 
+# defining class
+
 class ManageRecords:
     
     def __init__(self):
-
         self.cursor=conn.cursor()
 
+        # creating table movies
+        
         create_table = '''CREATE TABLE IF NOT EXISTS movies(
                         Const VARCHAR(50) NOT NULL PRIMARY KEY,
                         Your_Rating FLOAT NOT NULL,
