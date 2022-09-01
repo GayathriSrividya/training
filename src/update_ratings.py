@@ -1,5 +1,4 @@
 # import necessary packages
-
 import sys
 from ratings_class import Ratings
 import csv
