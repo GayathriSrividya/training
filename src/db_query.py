@@ -23,10 +23,10 @@ class ManageRecords:
         # creating table movies
 
         create_table = '''CREATE TABLE IF NOT EXISTS movies(
-                        Const VARCHAR(50) NOT NULL PRIMARY KEY,
+                        Const VARCHAR(50) NOT NULL,
                         Your_Rating FLOAT NOT NULL,
                         Date_Rated DATE NOT NULL,
-                        Title VARCHAR(255) NOT NULL,
+                        Title VARCHAR(255) NOT NULL PRIMARY KEY,
                         URL VARCHAR(50) NOT NULL,
                         Title_Type VARCHAR(50) NOT NULL,
                         IMDb_Rating VARCHAR(50) NOT NULL,
@@ -57,10 +57,10 @@ class ManageRecords:
 
     # method to read and return records from table movies
 
-    def read(self, const):
+    def read(self, title):
             try:
-                query ='''SELECT * FROM movies WHERE Const= %s;'''
-                values = [const]
+                query ='''SELECT * FROM movies WHERE Title= %s;'''
+                values = [title]
                 self.cursor.execute(query, values)
                 result=self.cursor.fetchall()
                 print(result)
@@ -70,15 +70,15 @@ class ManageRecords:
 
     # method to update values into the table movies
 
-    def update(self, const, new_rating):
+    def update(self, title, new_rating):
         if (new_rating>0.0 and new_rating<10.0):
 
             day=datetime.now()
             day=day.strftime("%d/%m/%Y")
             try:
                 query = '''UPDATE movies SET Your_Rating = %s, Date_Rated = %s
-                WHERE Const = %s;'''
-                values=[new_rating, day, const]
+                WHERE Title = %s;'''
+                values=[new_rating, day, title]
                 self.cursor.execute(query, values)    
                 conn.commit()
                 print("values updated in the database successfully...\n")
@@ -91,12 +91,12 @@ class ManageRecords:
 
     # method to delete an existing record from table
         
-    def delete(self, const):
+    def delete(self, title):
         try:
-            query='''DELETE FROM movies WHERE Const = %s;'''
-            values = [const]
+            query='''UPDATE movies SET Your_Rating = %s WHERE Title = %s;'''
+            values = [0, title]
             self.cursor.execute(query, values)
-            print("record is deleted from table successfully...\n")
+            print("rating is deleted from record successfully...\n")
         except (Exception, ps.DatabaseError) as error:
             print(error)
             
