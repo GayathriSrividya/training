@@ -4,7 +4,9 @@ import sys
 from datetime import datetime
 sys.path.append("..")
 from utils.dbconfig import dbconfig
+import json
 import psycopg2 as ps
+# from choice import my_choice
 
 # arranging connection to postgresql database
 params=dbconfig()
@@ -97,3 +99,14 @@ class ManageRecords:
             print("record is deleted from table successfully...\n")
         except (Exception, ps.DatabaseError) as error:
             print(error)
+            
+    # reading and executing queries stored in json file
+
+    def execute_query(self):
+        file_json= open('../json/test_query.json')
+        data = json.load(file_json)
+        for sqltext in data.values():
+            self.cursor.execute(sqltext)
+            result = self.cursor.fetchall()
+            print(result)
+            print("\n")
