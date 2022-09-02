@@ -6,7 +6,6 @@ sys.path.append("..")
 from utils.dbconfig import dbconfig
 import json
 import psycopg2 as ps
-# from choice import my_choice
 
 # arranging connection to postgresql database
 params=dbconfig()
