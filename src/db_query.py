@@ -89,7 +89,7 @@ class ManageRecords:
             sys.exit("enter a valid value between 0 and 10!!\n")
 
 
-    # method to delete an existing record from table
+    # method to delete rating from existing record
         
     def delete(self, title):
         try:
