@@ -1,6 +1,5 @@
 # importing required modules
 
-import psycopg2 as ps
 import pandas as pd
 from db_query import ManageRecords
 
@@ -27,13 +26,10 @@ print("Values are inserted into the database Successfully. \n")
 
 
 
-
-
-
-
 # below statements are examples how to call crud functions using class instance
 
-# this_movie.update('tt1001526', 8.23)
+# this_movie.update('tt1001526', 8.2)
 # this_movie.update('tt1001526', 18.23)
 # this_movie.read('tt1001526')
 # this_movie.delete('tt1001526')
+this_movie.execute_query()
