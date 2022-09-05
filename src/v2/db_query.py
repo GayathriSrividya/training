@@ -1,8 +1,7 @@
 # import required dependencies
-
-import sys
 from datetime import datetime
-sys.path.append("..")
+import sys
+sys.path.append("../..")
 from utils.dbconfig import dbconfig
 import psycopg2 as ps
 
