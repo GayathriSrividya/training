@@ -1,12 +1,13 @@
 from configparser import ConfigParser
+ 
 
-def dbconfig(name='../database.ini', section='postgresql'):
+def dbconfig(name='../../database.ini', section='postgresql'):
 
     # create a parser
     parser = ConfigParser()
     # read config file
     parser.read(name)
-
+    print(parser)
     db = {}
     if parser.has_section(section):
         params = parser.items(section)
