@@ -1,7 +1,4 @@
 # importing required modules
-
-import sys
-sys.path.append("..")
 import json
 import pandas as pd
 from db_query import ManageRecords
@@ -10,7 +7,7 @@ from db_query import ManageRecords
 
 print("reading file ratings.csv...\n")
 print("converting csv file into pandas dataframe...\n")
-df=pd.read_csv("../data/ratings.csv", encoding='latin')
+df=pd.read_csv("../../data/ratings.csv", encoding='latin')
 df['Date Rated'] = pd.to_datetime(df['Date Rated'])
 print("csv file is successfully converted into dataframe...\n")
 
@@ -25,7 +22,7 @@ for index, row in df.iterrows():
 
 print("Values are inserted into the database Successfully. \n")
 
-file_json= open('../json/test_query.json')
+file_json= open('../../config/test_query.json')
 data = json.load(file_json)
 for sqltext in data.values():
     this_movie.read(sqltext, 'tt1001526')
