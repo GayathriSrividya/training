@@ -9,7 +9,7 @@ class ManageRecords:
     ''' 
         Description of class ManageRecords 
         
-        This is a class to managerecords of a postgreSQL table
+        This is a class to manage records of a postgreSQL table
 
         Attributes:
         ----------
@@ -29,7 +29,7 @@ class ManageRecords:
                 const is primary key in ratings table
 
             output: 
-                prints record in the movies table that matches the argument title 
+                prints record in the ratings table that matches the argument title 
         
         update(self, const, new_rating)
             input: const, new_rating
@@ -146,7 +146,7 @@ class ManageRecords:
         const //primary key
         new_rating
 
-        selects record in ratings table that matches title 
+        selects record in ratings table that matches const
 
         checks the validity of the new_rating 
         proceeds with updation only if values ranging between 0 and 10
@@ -183,7 +183,7 @@ class ManageRecords:
         -----------
         const //primary key
 
-        selects the rating in the record that matches with title 
+        selects the rating in the record that matches with const
         sets the rating to 0
         prints the status
 
