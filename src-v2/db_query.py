@@ -8,6 +8,7 @@ import json
 import psycopg2 as ps
 
 # arranging connection to postgresql database
+
 params=dbconfig()
 conn = ps.connect(**params)
 conn.autocommit = True
