@@ -1,11 +1,12 @@
 {
-    "sql1": "SELECT COUNT(*) FROM movies;",
-    "sql2": "SELECT title_type, COUNT(*) FROM movies GROUP BY title_type; " ,
-    "sql3": "SELECT EXTRACT(YEAR FROM date_rated) AS year_of_rating, COUNT(*) FROM movies GROUP BY 1 ORDER BY 1;",
-    "sql4": "SELECT year, COUNT(*) FROM movies GROUP BY 1 ORDER BY 1;",
-    "sql5": "SELECT title, your_rating FROM movies ORDER BY your_rating DESC LIMIT 10;",
-    "sql6": "SELECT title, your_rating FROM movies ORDER BY your_rating LIMIT 10;",
-    "sql7": "SELECT genres from movies ORDER BY imdb_rating DESC;",
-    "sql8": "SELECT imdb_rating, COUNT(*) FROM movies GROUP BY 1 ORDER BY 1;"
+    "sql1": "SELECT COUNT(*) FROM ratings;",
+    "sql2": "SELECT title_type, COUNT(*) FROM ratings GROUP BY title_type; " ,
+    "sql3": "SELECT EXTRACT(YEAR FROM date_rated) AS year_of_rating, COUNT(*) FROM ratings GROUP BY 1 ORDER BY 1;",
+    "sql4": "SELECT year, COUNT(*) FROM ratings GROUP BY 1 ORDER BY 1;",
+    "sql5": "SELECT title, your_rating FROM ratings ORDER BY your_rating DESC LIMIT 10;",
+    "sql6": "SELECT title, your_rating FROM ratings ORDER BY your_rating LIMIT 10;",
+    "sql7": "SELECT genres from ratings ORDER BY imdb_rating DESC;",
+    "sql8": "SELECT imdb_rating, COUNT(*) FROM ratings GROUP BY 1 ORDER BY 1;",
+    "sql9": "SELECT * FROM ratings WHERE Const=%s"
 
 }
