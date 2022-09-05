@@ -1,13 +1,10 @@
 # import necessary packages
 import sys
-from ratings_class import Ratings
 import pandas as pd
-
 # Read the csv file
 # Load the CSV into a Data Frame
 
-csv_file=pd.read_csv('../data/ratings.csv', encoding='latin')
-
+csv_file=pd.read_csv('../../data/ratings.csv', encoding='latin')
 # iterating over the Data Frame rows using df.iterrows()
 
 for index, row in csv_file[0:10].iterrows():
