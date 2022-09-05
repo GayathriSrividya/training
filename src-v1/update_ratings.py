@@ -19,6 +19,7 @@ for index, row in csv_file[0:10].iterrows():
     
     # checking the rating is valid type
 
+
     try:
         my_rating=float(my_rating)
         # Create object this_movie for Ratings class
