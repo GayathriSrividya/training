@@ -51,9 +51,9 @@ src folder consists of python programs that retrieve and manipulate values in cs
 pandas and postgreSQL
 
 . src->v1
-	update_ratings.py ---- this file has set of instructions that converts csv file to pandas 	dataframe, creates instance for the class Ratiings to retrieve and update user rating
+	update_ratings.py ---- this file has set of instructions that converts csv file to pandas 	dataframe, creates instance for the class 				 Ratings to retrieve and update user rating
 	
-	ratings_class.py ----- this python class contains dataframe values as attributes also 	consists of methods get_rating(), set_rating() to update user rating along with 	current date
+	ratings_class.py ----- this python class contains dataframe values as attributes also 	consists of methods get_rating(), set_rating() to 				 update user rating along with current date
 
 .src->v2
 
