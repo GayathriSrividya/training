@@ -48,7 +48,7 @@ class Records:
     '''
     def __init__(self):
         '''
-        Default constructor for ManageRecords
+        Default constructor for Records
         creates a table named ratings, along with 13 columns namely
             Const // primary key
             Your_Rating
