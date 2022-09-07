@@ -1,7 +1,7 @@
 # import required dependencies
 from datetime import datetime
 import sys
-sys.path.append("../..")
+sys.path.append("/home/stpl/gayathri/training")
 from utils.dbconfig import dbconfig
 import psycopg2 as ps
 
@@ -63,7 +63,6 @@ class Records:
             Num_Votes
             Release_date
             Directors
-
         '''
         params=dbconfig()
         self.conn = ps.connect(**params)
@@ -102,7 +101,8 @@ class Records:
         try:
             columns=("""INSERT INTO ratings (Const, Your_Rating, Date_Rated, Title, URL, Title_type, IMDb_Rating, Runtime_mins, 
             Year, Genres, Num_Votes, Release_Date, Directors) 
-            VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);""") 
+            VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            ON CONFLICT (Const) DO NOTHING;""") 
             values=[row['Const'], row['Your Rating'], row['Date Rated'], row['Title'], row['URL'], 
             row['Title Type'], row['IMDb Rating'], row['Runtime (mins)'], 
             row['Year'], row['Genres'], row['Num Votes'], row['Release Date'], row['Directors']]
@@ -111,8 +111,9 @@ class Records:
         
         except (Exception, ps.DatabaseError) as error:
             print(error)
+            return -1
 
-    def read(self, query, params):
+    def read(self, query, *params):
         '''
         Summary Line 
         Extended Description of read(self, query, params)
@@ -128,14 +129,15 @@ class Records:
         raises exception if any
         '''
         try:
-            values =[params]
+            values =[*params]
             self.cursor.execute(query, values)
             result=self.cursor.fetchall()
             print(result)
             print("\n")
         except (Exception, ps.DatabaseError) as error:
             print(error)
-
+            return -1
+        
     def update(self, const, new_rating):
         '''
         Summary Line
@@ -157,23 +159,29 @@ class Records:
 
         raises exception if any
         '''
-        if (new_rating>0.0 and new_rating<10.0):
+        try: 
+            if (new_rating>=0.0 and new_rating<=10.0):
 
-            day=datetime.now()
-            day=day.strftime("%d/%m/%Y")
-            try:
-                query = '''UPDATE ratings SET Your_Rating = %s, Date_Rated = %s
-                WHERE Const = %s;'''
-                values=[new_rating, day, const]
-                self.cursor.execute(query, values)    
-                self.conn.commit()
-                print("values updated in the database successfully...\n")
+                day=datetime.now()
+                day=day.strftime("%d/%m/%Y")
+                try:
+                    query = '''UPDATE ratings SET Your_Rating = %s, Date_Rated = %s
+                    WHERE Const = %s;'''
+                    values=[new_rating, day, const]
+                    self.cursor.execute(query, values)    
+                    self.conn.commit()
+                    print("values updated in the database successfully...\n")
 
-            except (Exception, ps.DatabaseError) as error:
-                print(error)
-        else:
-            sys.exit("enter a valid value between 0 and 10!!\n")
-        
+                except (Exception, ps.DatabaseError) as error:
+                    print(error)
+                    return -1
+            else:
+                print("enter a valid value between 0 and 10!!\n")
+                return -1
+        except:
+            print("enter a valid value between 0 and 10!!\n")
+            return -1
+
     def delete(self, const):
         '''
         Summary Line 
@@ -196,3 +204,4 @@ class Records:
             print("rating is deleted from record successfully...\n")
         except (Exception, ps.DatabaseError) as error:
             print(error)
+            return -1
