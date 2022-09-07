@@ -58,8 +58,8 @@ src->v1
 
 src->v2
 ------
-1)df_to_db.py  ---- converts csv file to postgreSQL using pandas, creating instance for the class ManageRecords to manipulate columns in the 
+1)dataframe.py  ---- converts csv file to postgreSQL using pandas, creating instance for the class ManageRecords to manipulate columns in the 
 		  postgreSQL table
 		  
-2)db_query.py ---- consists of python class ManageRecords, involves different methods 
+2)records_class.py ---- consists of python class ManageRecords, involves different methods 
 		  to create a table and also perform CRUD(create, read, update, delete) operations on the table 
