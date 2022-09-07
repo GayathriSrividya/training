@@ -1,5 +1,4 @@
 # import necessary packages
-import sys
 import pandas as pd
 from ratings_class import Ratings
 # Read the csv file
