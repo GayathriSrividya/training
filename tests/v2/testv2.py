@@ -29,5 +29,6 @@ class Testrecords(unittest.TestCase):
         for query, text in self.data['delete'].items():
             print(query+"\n")
             self.assertEqual(self.instance.delete(text[0]), text[1])
-            
-unittest.main()
+
+if __name__ == '__main__':  
+    unittest.main()

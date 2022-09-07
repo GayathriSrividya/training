@@ -21,5 +21,5 @@ class TestRating(unittest.TestCase):
             print(query+'\n')
             self.assertEqual(self.instance.get_rating(text[0]), text[1])
          
-         
-unittest.main()
+if __name__ == '__main__':  
+    unittest.main()
