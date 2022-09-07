@@ -2,3 +2,4 @@ pandas>=1.4.4
 datetime>=4.5
 psycopg2>=2.9.3
 unittest>=1.1.0
+coverage>=6.4.4
