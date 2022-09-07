@@ -1,5 +1,4 @@
 # importing necessary modules
-import sys
 from datetime import datetime
 
 class Ratings:
