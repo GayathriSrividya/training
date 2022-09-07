@@ -73,16 +73,23 @@ class Ratings:
         self.num_votes=num_votes
         self.release_date=release_date
         self.directors=directors
-
     
-    def get_rating(self):
+    def get_rating(self, title):
         '''
         Summary Line 
         Extended Description of get_rating(self)
 
         this method is used to retrieve user rating 
         '''
-        return self.your_rating
+        if (title==self.title):
+
+            print("your previous rating for "+self.title+":")
+            print(self.your_rating)
+
+        else:
+
+            print("title doesn't exist")
+            return -1
 
 
     def set_rating(self, new_rating):
@@ -105,11 +112,20 @@ class Ratings:
         stops execution otherwise
         
         '''
-        if(new_rating>=0 and new_rating<=10.0):
-            self.your_rating=new_rating
-            day=datetime.now()
-            day=day.strftime("%d/%m/%Y")
-            self.date_rated=day
-        else:
-            sys.exit()
-
+        try:
+            new_rating=float(new_rating)
+            try:
+                if(new_rating>=0 and new_rating<=10.0):
+                    self.your_rating=new_rating
+                    day=datetime.now()
+                    day=day.strftime("%d/%m/%Y")
+                    self.date_rated=day
+                    print("rating updated sucessfully\n")
+                else:
+                    print("invalid input!! must be in between 0 and 10!! \n \nrating not updated\n")
+                    return -1
+            except:
+                return -1
+        except:
+            print("invalid input type")
+            return -1
