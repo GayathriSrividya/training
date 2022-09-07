@@ -7,7 +7,7 @@ from v2.records_class import Records
 class Testrecords(unittest.TestCase):
 
     instance = Records()  
-    file_json= open('/home/stpl/gayathri/training/tests/v2/v2params.json')
+    file_json= open('/home/stpl/gayathri/training/config/v2params.json')
     data = json.load(file_json)
 
     def test_insert(self):
