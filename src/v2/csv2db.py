@@ -28,7 +28,11 @@ read_queries= open('../../config/read_queries.json')
 query_data = json.load(read_queries)
 for query, sqltext in query_data.items():
     print(query+"\n")
-    this_title.read(sqltext, 'tt1001526')
+    if "%s" in sqltext:
+        val = input("Enter Const id of title: ")
+        this_title.read(sqltext, val)
+    else:
+        this_title.read(sqltext)
     
 this_title.update("tt1001526", 7.23)
 this_title.delete("tt1001526")
