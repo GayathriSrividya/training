@@ -38,7 +38,7 @@ data:
 
 config:
 ------
-  test_query.json // json file that consists of SQL queries
+  read_queries.json // json file that consists of SQL queries
 
 utils:
 -----
@@ -52,14 +52,89 @@ pandas and postgreSQL
 
 src->v1
 -------
-1)update_ratings.py ---- this file has set of instructions that converts csv file to pandas dataframe, creates instance for the class 				 	Ratings to retrieve and update user rating
+1)csv2pandas.py ---- this file has set of instructions that converts csv file to pandas dataframe, creates instance for the class 				 	Ratings to retrieve and update user rating
 
-2)ratings_class.py ----- this python class contains dataframe values as attributes also 	consists of methods get_rating(), set_rating() to 				 update user rating along with current date
+2)ratings.py ----- this python class contains dataframe values as attributes also 	consists of methods get_rating(), set_rating() to 				 update user rating along with current date
 
 src->v2
 ------
-1)dataframe.py  ---- converts csv file to postgreSQL using pandas, creating instance for the class ManageRecords to manipulate columns in the 
+1)csv2db.py  ---- converts csv file to postgreSQL using pandas, creating instance for the class ManageRecords to manipulate columns in the 
 		  postgreSQL table
 		  
-2)records_class.py ---- consists of python class ManageRecords, involves different methods 
+2)records.py ---- consists of python class Ratings, involves different methods 
 		  to create a table and also perform CRUD(create, read, update, delete) operations on the table 
+
+tests:
+------
+
+this folder contains unittest files to check functionality of python codes existing in src folder, and also contains json files containing test cases.
+
+
+setting up github repository:
+----------------------------
+
+Before you start working on the project, create your own github repository and generate SSH, GPG keys for authentication.
+for more information, refer below:
+
+
+https://docs.github.com/en/get-started/quickstart/create-a-repo
+
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+
+https://docs.github.com/en/authentication/managing-commit-signature-verification
+
+
+create python virtual environment in your linux system
+----------------------------------------------------- 
+
+run python -V (if version is not displayed run sudo apt install python3)
+
+after installing python, run "python -m venv my-project-env" 
+
+then virtual environment named my-project-env will be created. 
+
+run "source my-project-env/bin/activate" to activate 
+
+run "pip install requests" & "python -c "import requests"" only for the first time.
+
+to close the virtual environment, type "deactivate"
+
+
+install postgres in linux:
+--------------------------
+
+type the following command 
+
+"sudo apt-get install postgresql"
+
+after successful installation, connect to postgresql using 
+"sudo -i -u postgres"
+
+the user will now switched to postgres, type "psql" to connect with database server or to return to regular user type "exit" or press ctrl+d
+
+postgres@user:~$ psql
+
+postgres=# // here you can create different databases and manage tables 
+
+to create a database
+postgres=# "create database my_database;"
+
+connect to database "my_database"
+postgres=# \c my_database
+
+to exit type \q or ctrl+d
+
+
+setup:
+-----
+install required dependencies in requirements.txt file
+
+"pip install -r requirements.txt"
+
+create a new directory using "mkdir dir_name"
+
+to navigate into directory use "cd path/to/dir_name"
+
+create a new file (say python file) use "touch file.py"
+
+to execute a python script, use command "python file.py" or "python path/to/file.py"
