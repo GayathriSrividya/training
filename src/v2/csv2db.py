@@ -5,7 +5,6 @@ import pandas as pd
 
 from records import Ratings
 
-
 # reading csv file 
 
 print("reading file ratings.csv...\n")
