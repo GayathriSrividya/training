@@ -1,13 +1,13 @@
 import unittest
 import json
 import sys
-sys.path.append("/home/stpl/gayathri/training/src")
-from v2.records_class import Records
+sys.path.append("../../src")
+from v2.records import Ratings
 
 class Testrecords(unittest.TestCase):
 
-    instance = Records()  
-    file_json= open('/home/stpl/gayathri/training/config/v2params.json')
+    instance = Ratings()  
+    file_json= open('../../tests/config/v2params.json')
     data = json.load(file_json)
 
     def test_insert(self):
