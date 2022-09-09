@@ -37,7 +37,6 @@ class Ratings:
 
         successful updation depends upon the range in which new_rating lies (0 to 10)
 
-
     '''
     def __init__(self, const, your_rating, date_rated, title, url, title_type, imdb_rating, runtime, year, genres, num_votes, release_date, directors):
         '''
