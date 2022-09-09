@@ -1,0 +1,12 @@
+{
+    "List total number of records in table: ": "SELECT COUNT(*) FROM ratings;",
+    "List number of records by title type: ": "SELECT title_type, COUNT(*) FROM ratings GROUP BY title_type; " ,
+    "List number of records by year of rating: ": "SELECT EXTRACT(YEAR FROM date_rated) AS year_of_rating, COUNT(*) FROM ratings GROUP BY 1 ORDER BY 1;",
+    "List number of records by year of release: ": "SELECT year, COUNT(*) FROM ratings GROUP BY 1 ORDER BY 1;",
+    "List the top 10 rated titles: ": "SELECT title, your_rating FROM ratings ORDER BY your_rating DESC LIMIT 10;",
+    "List the bottom 10 rated titles: ": "SELECT title, your_rating FROM ratings ORDER BY your_rating LIMIT 10;",
+    "List genres by their average ratings, sorted decrementally: ": "SELECT genre, CAST(AVG(your_rating) AS DECIMAL(5,2)) AS average_rating FROM (SELECT DISTINCT(UNNEST(STRING_TO_ARRAY(genres, ', '))) AS genre, your_rating FROM ratings) AS temp GROUP BY genre ORDER BY average_rating DESC;",
+    "Fetch histogram of ratings: ": "SELECT your_rating, COUNT(*) FROM ratings GROUP BY 1 ORDER BY 1;",
+    "Filter Records from table using Const": "SELECT * FROM ratings WHERE Const=%s"
+
+}
