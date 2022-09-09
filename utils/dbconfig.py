@@ -1,6 +1,5 @@
 from configparser import ConfigParser
-def dbconfig(name='/home/stpl/gayathri/training/database.ini', section='postgresql'):
-
+def dbconfig(name='../../database.ini', section='postgresql'):
     # create a parser
     parser = ConfigParser()
     # read config file
