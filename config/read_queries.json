@@ -9,5 +9,4 @@
     "Fetch histogram of ratings: ": "SELECT your_rating, COUNT(*) FROM ratings GROUP BY 1 ORDER BY 1;",
     "Filter Records from table using Const": "SELECT * FROM ratings WHERE Const=%s"
 
-    
 }
