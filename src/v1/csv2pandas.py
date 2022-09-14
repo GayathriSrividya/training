@@ -4,9 +4,9 @@ from ratings import Ratings
 # Read the csv file
 # Load the data in csv file into a Data Frame
 
-csv_file=pd.read_csv('/home/stpl/gayathri/training/data/ratings.csv', encoding='latin')
+csv_file=pd.read_csv('../../data/ratings.csv', encoding='latin')
 
-# iterating over the Data Frame rows using df.iterrows()
+# iterating over the DataFrame rows using df.iterrows()
 
 for index, row in csv_file[0:10].iterrows():
 
