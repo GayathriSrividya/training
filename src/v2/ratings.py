@@ -1,5 +1,6 @@
 # import required dependencies
 from datetime import datetime
+
 import sys
 sys.path.append('../..')
 from utils.dbconfig import dbconfig
