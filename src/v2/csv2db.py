@@ -3,7 +3,7 @@ import json
 
 import pandas as pd
 
-from records import Ratings
+from ratings import Ratings
 
 # reading csv file 
 
@@ -24,8 +24,14 @@ for index, row in df.iterrows():
 
 print("Values are inserted into the database Successfully. \n")
 
+
+# reading json file contains sql queries
+
 read_queries= open('../../config/read_queries.json')
 query_data = json.load(read_queries)
+
+# executing sql queries one by one
+
 for query, sqltext in query_data.items():
     print(query+"\n")
     if "%s" in sqltext:
