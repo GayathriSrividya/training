@@ -36,5 +36,4 @@
         "assertion when deleting user rating using an integer": [1234, -1],
         "assertion when trying to delete a rating using the rating itself": [6, -1]
      }
-    
 }
