@@ -1,8 +1,8 @@
 import unittest
 import json
 import sys
-sys.path.append('../../src')
-from v1.ratings import Ratings
+sys.path.append('../..')
+from src.v1.ratings import Ratings
 
 class TestRating(unittest.TestCase):
     file_json= open('../../tests/config/v1params.json')

@@ -1,13 +1,14 @@
 import unittest
 import json
+import pandas as pd
 import sys
 sys.path.append('../..')
-from src.v2.ratings import Ratings
+from src.v3.ratings import Ratings
 
 class Testrecords(unittest.TestCase):
-
-    instance = Ratings()  
-    file_json= open('../../tests/config/v2params.json')
+    ratings=pd.read_csv('../../data/ratings.csv', encoding='latin')
+    instance = Ratings(ratings)  
+    file_json= open('../../tests/config/v3params.json')
     data = json.load(file_json)
 
     def test_insert(self):
@@ -18,7 +19,7 @@ class Testrecords(unittest.TestCase):
     def test_read(self):
         for query, text in self.data['read'].items():
             print(query+"\n")
-            self.assertEqual(self.instance.read(text[0], text[1]), text[2])
+            self.assertEqual(self.instance.read(text[0]), text[1])
    
     def test_update(self):
         for query, text in self.data['update'].items():
@@ -32,3 +33,4 @@ class Testrecords(unittest.TestCase):
 
 if __name__ == '__main__':  
     unittest.main()
+
