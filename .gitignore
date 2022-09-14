@@ -1,8 +1,6 @@
+.coverage
 database.ini
 my-project-env
 __pycache__
 __init__.py 
 htmlcov/
-.coverage
-.coverage.*
-.cache
