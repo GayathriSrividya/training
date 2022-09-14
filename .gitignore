@@ -3,3 +3,8 @@ my-project-env
 __pycache__
 __init__.py 
 .coverage/
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
