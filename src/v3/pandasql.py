@@ -5,12 +5,9 @@ import json
 
 from ratings import Ratings
 
-import os
-dirname = os.path.dirname(__file__)
-filename = os.path.join(dirname, '../../data/ratings.csv')
-
+ 
 # reading csv file 
-ratings=pd.read_csv(filename, encoding='latin')
+ratings=pd.read_csv('../../data/ratings.csv', encoding='latin')
 
 # reading json file contains pandas queries
 
