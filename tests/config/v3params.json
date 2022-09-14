@@ -1,0 +1,40 @@
+{
+    "insert":
+    {
+        "assertion when inserting row into dataframe with valid values": [{"Const": ["tt1001526"], "Your Rating": [6], "Date Rated": ["2017-03-18 00:00:00"], "Title": ["Megamind"], "URL": ["https://www.imdb.com/title/tt1001526/"], "Title Type": ["movie"], "IMDb Rating": [7.3], "Runtime (mins)": [95.0], "Year": [2010], "Genres": ["Animation, Action, Comedy, Family, Sci-Fi"], "Num Votes": [208264], "Release Date": ["10/28/2010"], "Directors": ["Tom McGrath"]}, null],
+        "assertion when inserting row into dataframe with valid values and null rating": [{"Const": ["tt1790454"], "Your Rating": [null], "Date Rated": ["2017-03-18 00:00:00"], "Title": ["Tom and jerry"], "URL": ["https://www.imdb.com/title/tt1001526/"], "Title Type": ["movie"], "IMDb Rating": [7.3], "Runtime (mins)": [95.0], "Year": [2010], "Genres": ["Animation, Action, Comedy, Family, Sci-Fi"], "Num Votes": [208264], "Release Date": ["10/28/2010"], "Directors": ["Tom McGrath"]}, null],
+        "assertion when inserting row into dataframe using 13 values": [[1,2,3,4,5,6,7,8,9,10,11,12,13], null],
+        "assertion when inserting row into dataframe with title only": ["Megamind", -1],
+        "assertion when inserting row into dataframe with const id only": ["tt1001526", -1],
+        "assertion when inserting row into dataframe by giving column count": [13, -1]
+ 
+    },
+    "read":
+    {
+        "assertion when reading a row from dataframe that matches title": ["print(self.ratings.loc[self.ratings.Title=='Megamind'])", null],
+        "assertion when reading columns in dataframe with nonexistent const id": ["print(self.ratings.loc[self.ratings.Const=='tt'][['Your Rating', 'Title']])", null],
+        "assertion when reading a column that does not exist": ["print(self.ratings.loc[self.ratings.Const=='tt1001526']['Country'])", -1],
+        "assertion when reading rows from a nonexistent dataframe": ["print(movies)", -1],
+        "assertion when reading rows by giving const id to invalid column": ["print(self.ratings.loc[self.ratings.Country=='tt1001526'])", -1],
+        "assertion when query is given": [null, -1],
+        "Filter rows using const id": ["print(self.ratings.loc[self.ratings.Const==id])", null]
+    },
+    "update":
+    {
+        "assertion when updating user rating to valid value": ["tt1001526", 6.2, null],  
+        "assertion when updating user rating to valid value but with nonexistent const id": ["tt1", 0, null],
+        "assertion when updating user rating to invalid value": ["tt1001526", -2, -1],
+        "assertion when updating user rating to invalid type (str- my_rating)": ["tt1001526", "my_rating", -1],
+        "assertion when updating user rating to valid value but invalid type (str-10)": ["tt1001526", "10", null]      
+
+    },
+    "delete": 
+    {
+        "assertion when deleting user rating using existing const id": ["tt1001526", null],
+        "assertion when deleting user rating using const id as %s": ["%s", -1],
+        "assertion when deleting user rating using nonexistent const id": ["tt", -1],
+        "assertion when deleting user rating using an integer": [1234, -1],
+        "assertion when trying to delete a rating using the rating itself": [6, -1]
+     }
+    
+}

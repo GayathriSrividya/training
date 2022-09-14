@@ -12,6 +12,4 @@
                 "assertion when updating user rating to negative value": [-2, -1],
                 "assertion when updating user rating to invalid type (str-zero)": ["zero", -1]
         }
-
-
 }
