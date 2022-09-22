@@ -1,6 +1,7 @@
 {
     "List number of rows in a dataframe": "print(ratings.count())",
     "List number of rows by title type": "ratings.groupBy(ratings['Title Type']).count().sort(desc('count')).show()",
+    "List number of rows by year of rating": "ratings.withColumn('Year Rated', year(to_date(col('Date Rated'), 'MM/dd/yyyy'))).groupBy('Year Rated').count().sort(desc('count')).show()",
     "List number of rows by year of release": "ratings.groupBy(ratings.Year).count().sort(asc('Year')).show()",
     "List top 10 rated titles": "ratings.select([ratings['Title'], ratings['Your Rating']]).sort(desc('Your Rating')).show(10)",
     "List bottom 10 rated titles": "ratings.select([ratings['Title'], ratings['Your Rating']]).sort(asc('Your Rating')).show(10)",
