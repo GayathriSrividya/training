@@ -1,0 +1,11 @@
+{
+    "List number of rows in a dataframe": "print(self.ratings.shape[0])",
+    "List number of rows by title type": "print(self.ratings['Title Type'].value_counts())",
+    "List number of rows by year of rating": "print(pd.DatetimeIndex(self.ratings['Date Rated']).year.value_counts())",
+    "List number of rows by year of release": "print(self.ratings['Year'].value_counts())",
+    "List top 10 rated titles": "print(self.ratings[['Title', 'Your Rating']].sort_values(by='Your Rating', ascending=False)[:10])",
+    "List bottom 10 rated titles": "print(self.ratings[['Title', 'Your Rating']].sort_values(by='Your Rating')[:10])",
+    "Fetch histogram of ratings": "print(self.ratings['Your Rating'].value_counts())",
+    "List genres by their average ratings, sorted decrementally: ": "self.ratings['Genres']=self.ratings['Genres'].str.split(', ')\nprint(self.ratings.explode('Genres').groupby('Genres')[['Genres', 'Your Rating']].mean().round(decimals=2).sort_values(by='Your Rating', ascending=False))",
+    "Filter rows using const id": "print(self.ratings.loc[self.ratings.Const==id])"
+}

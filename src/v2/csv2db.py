@@ -1,0 +1,44 @@
+# importing required modules
+import json
+
+import pandas as pd
+
+from ratings import Ratings
+
+# reading csv file 
+
+print("reading file ratings.csv...\n")
+print("converting csv file into pandas dataframe...\n")
+df=pd.read_csv("../../data/ratings.csv", encoding='latin')
+df['Date Rated'] = pd.to_datetime(df['Date Rated'])
+print("csv file is successfully converted into dataframe...\n")
+ 
+# creating instance for Ratings class
+ 
+this_title=Ratings()
+
+print("inserting values into database...\n")
+
+for index, row in df.iterrows():
+    this_title.insert(row)
+
+print("Values are inserted into the database Successfully. \n")
+
+
+# reading json file contains sql queries
+
+read_queries= open('../../config/read_queries.json')
+query_data = json.load(read_queries)
+
+# executing sql queries one by one
+
+for query, sqltext in query_data.items():
+    print(query+"\n")
+    if "%s" in sqltext:
+        val = input("Enter Const id of title: ")
+        this_title.read(sqltext, val)
+    else:
+        this_title.read(sqltext)
+    
+this_title.update("tt1001526", 7.23)
+this_title.delete("tt1001526")

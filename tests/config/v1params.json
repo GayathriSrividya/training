@@ -1,0 +1,16 @@
+{
+        "get":
+        {
+                "assertion when retrieving user rating": [3]
+        },
+
+        "set":
+        {
+                "assertion when updating user rating to valid value": [6.2, null] ,
+                "assertion when updating user rating to valid value but invalid type (str-10)": ["10", null],
+                "assertion when updating user rating to invalid value": [18.23, -1],
+                "assertion when updating user rating to negative value": [-2, -1],
+                "assertion when updating user rating to invalid type (str-zero)": ["zero", -1]
+        }
+        
+}
